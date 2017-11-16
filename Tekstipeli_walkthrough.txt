@@ -1,0 +1,28 @@
+Alun tervehdystekstit ohittaa nopeiten skip-komennolla.
+Kartta löytyy erillisestä tiedostosta.
+
+
+Peli voitetaan seuraavalla tavalla:
+1. Löydä liima galleriasta ja avain vessasta.
+2. Liimaa avain komennolla "glue key" tai "use glue".
+3. Ota peruukki "steal wig" toimistosta, ja käytä avainta "use key" avataksesi oven salahuoneeseen.
+4. Ota salahuoneesta löytämäsi kansio. Viimeistään tässä vaiheessa herätät vartijoiden huomion.
+5. Juokse toimistoon "run office" ja laita peruukki "use wig". Vastaa vartijalle "answer b": hän meni tuonne.
+6. Kävele takaisin sisääntulolle.
+
+* Aina kun törmäät vartijaan, vastaa hänelle joko a, mikäli et ole vielä vienyt kansiota, tai b, mikäli olet.
+* Jos kuitenkin haluat enemmän toimintaa, vartijaa voi juosta karkuun seuraavaan huoneeseen, jossa voit käyttää peruukkia naamioituaksesi.
+* Vartija tulee paikalle satunnaisesti tai run-komennolla sekä pelaajan vietyä kansion.
+* Vartijoilta ei voi kävellä karkuun. Myös olemattomaan paikkaan juokseminen voi johtaa kiinnijäämiseen.
+
+* Komentosyöte ottaa vastaan monella tapaa muotoiltuja vastauksia. Erityisesti liikkuminen onnistuu ilman "to"
+lisäystä, ja paikan nimen ei tarvitse olla täydellinen. Koodin tunnistamat nimikkeet ovat:
+- entrance
+- hall
+- office
+- court
+- gallery
+- monitoring
+- room
+- restroon
+
