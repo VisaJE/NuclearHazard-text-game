@@ -29,7 +29,7 @@ object Adventure {
       new Door(office, hiddenRoom, false), new Door(court, gallery, true), new Door(court, monitoringRoom, false))
   
   
-  entrace.addItem(new Item("letter", "It says something in Russian.", false))   
+  entrace.addItem(new Laptop)   
   office.addItem(new Wig("wig", "I can use this as a disguise, if the guards are looking for me.", true))
   hiddenRoom.addItem(new Item("files", "Taking these set of an alarm! I need to get out!!", false))
   

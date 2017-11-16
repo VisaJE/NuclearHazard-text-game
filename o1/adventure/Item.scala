@@ -73,3 +73,9 @@ class Glue(name: String, descri: String, someLeft: Boolean, thing: Item) extends
     else "There is no glue left."
   }
 }
+class Laptop extends Item("laptop", "Seems to contain a fun game!", true) {
+  override def use() = {
+    o1.tetris.Game.startup(Array())
+    "You start a game."
+  }
+}

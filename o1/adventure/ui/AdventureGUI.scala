@@ -123,9 +123,7 @@ object AdventureGUI extends SimpleSwingApplication {
     val turnReport = this.game.playIntro(command)  
     this.updateInfo(turnReport)
     }
-
-    
+       
   }
-    
 }  
   
