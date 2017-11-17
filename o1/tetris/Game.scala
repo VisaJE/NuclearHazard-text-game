@@ -42,10 +42,10 @@ object Game extends SimpleSwingApplication {
   inputText.editable = false
   inputText.border = Swing.LineBorder(new Color(10,10,0), 2)
   inputText.background = new Color(150, 200, 230)
-  quitButton = Button("Quit") { sys.exit(0) }
 
   inputText.lineWrap = true
   inputText.wordWrap = true
+  quitButton = Button("Quit Tetris") {gameWindow.close()}
   }
   formBottomPanel()
   // Game setup!

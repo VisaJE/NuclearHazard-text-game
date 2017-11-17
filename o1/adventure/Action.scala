@@ -20,8 +20,6 @@ class Action(input: String) {
   def introCommand(): String = {
     if (this.verb == "ok") {
       Storyline.intro("next")
-    } else if (this.verb == "previous") {
-      Storyline.intro("previous")
     } else if (verb == "skip") {
       Storyline.intro("skip")
     } else "What?"

@@ -14,7 +14,7 @@ object Adventure {
   /** The title of the adventure game. */
   val title = "The nuclear agent hazard game"
     
-   val entrace = new Area("the entrace", "It looks like something out of a Bond movie. You hear guards walking about.", "entrace")
+   val entrance = new Area("the entrance", "It looks like something out of a Bond movie. You hear guards walking about.", "entrance")
    val mainHall = new Area("a hall", """ "Hmm. Where should I go." """, "hall")
    val office = new Area("an office of some sort", "Can't see any launch codes here.", "office")
    val restroom = new Area("a restroom", "It's a restroom, alright?", "restroom")
@@ -25,11 +25,11 @@ object Adventure {
    
   
   
-  val doorList: Vector[Door] = Vector(new Door(entrace, mainHall, true), new Door(mainHall, office, true), new Door(mainHall, restroom, true), new Door(mainHall, court, true),
+  val doorList: Vector[Door] = Vector(new Door(entrance, mainHall, true), new Door(mainHall, office, true), new Door(mainHall, restroom, true), new Door(mainHall, court, true),
       new Door(office, hiddenRoom, false), new Door(court, gallery, true), new Door(court, monitoringRoom, false))
   
   
-  entrace.addItem(new Laptop)   
+  entrance.addItem(new Laptop)   
   office.addItem(new Wig("wig", "I can use this as a disguise, if the guards are looking for me.", true))
   hiddenRoom.addItem(new Item("files", "Taking these set of an alarm! I need to get out!!", false))
   
@@ -42,7 +42,7 @@ object Adventure {
   itemRelations(doorList(4))
  
   /** The character that the player controls in the game. */
-  val player = new Player(entrace)
+  val player = new Player(entrance)
 
   /** The number of turns that have passed since the start of the game. */
   var turnCount = 0
@@ -52,7 +52,7 @@ object Adventure {
 
   /** Determines if the adventure is complete, that is, if the player has won. */
   def isComplete = {
-    this.player.location == entrace && this.player.Inventory.contains("files")
+    this.player.location == entrance && this.player.Inventory.contains("files")
   }
 
   /** Determines whether the player has won, lost, or quit, thereby ending the game. */ 
