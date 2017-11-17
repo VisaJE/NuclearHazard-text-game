@@ -267,7 +267,7 @@ object Game extends SimpleSwingApplication {
     
        //LETS GO
       session.start
-      updateView(Some("The controls are up, down, left, right, space and p\nPress anything to start"))
+      updateView(Some("The controls are up, down, left, right, space and p\nPress anything."))
     
   // Ajastettu toiminta
     def haltAll(): Unit = {
