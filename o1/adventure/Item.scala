@@ -27,18 +27,18 @@ class Wig(name: String, description: String, usability: Boolean) extends Item(na
     }
       else Adventure.player.isDisguised = false
       
-      if (!Vladimir.isHere) {
-        if (Vladimir.isComing)  {
-          Vladimir.hide()
-          Vladimir.alarmVladimir
-        "You disguise yourself!\n" + Vladimir.vladiChat(None)
+      if (!Adventure.enemy.isHere) {
+        if (Adventure.enemy.isComing)  {
+          Adventure.enemy.hide()
+          Adventure.enemy.alarmVladimir
+        "You disguise yourself!\n" + Adventure.enemy.vladiChat(None)
         }  
         else {
           "You change your apparel."
         }
       }
         else {
-        Vladimir.provoke(true)
+        Adventure.enemy.provoke(true)
         "A guard saw you doing that!\nVladimir: I FOUND A SPY!"
       }
   }
@@ -48,8 +48,8 @@ class Key(name: String, descript: String, isUsable: Boolean,private val door: Do
   override def use(): String = {
     if (Adventure.player.location == Adventure.office && this.usability) {
       door.isOpen = true
-      if (Vladimir.isHere) {
-        Vladimir.provoke(true)
+      if (Adventure.enemy.isHere) {
+        Adventure.enemy.provoke(true)
         "A guard saw you doing that.\nVladimir: Ostanovit'!"
       } 
       else "You opened the door to the hidden room!"

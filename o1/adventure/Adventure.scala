@@ -13,6 +13,7 @@ object Adventure {
 
   /** The title of the adventure game. */
   val title = "The nuclear agent hazard game"
+  val enemy = new Vladimir
     
    val entrance = new Area("the entrance", "It looks like something out of a Bond movie. You hear guards walking about.", "entrance")
    val mainHall = new Area("a hall", """ "Hmm. Where should I go." """, "hall")
@@ -59,7 +60,7 @@ object Adventure {
   def isOver = this.isComplete || this.player.hasQuit || this.turnCount == this.timeLimit || this.isLosted
   
   //Vladimirs hammer
-  def isLosted = Vladimir.gotYou
+  def isLosted = enemy.gotYou
 
   /** Returns a message that is to be displayed to the player at the beginning of the game. */
   def welcomeMessage = Storyline.alkuTeksti

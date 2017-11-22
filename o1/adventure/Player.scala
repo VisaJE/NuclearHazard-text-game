@@ -25,12 +25,12 @@ class Player(startingArea: Area) {
     if (currentLocation.contains(thing)) {
       Inventory += thing -> currentLocation.removeItem(thing).get
       if (thing == "files") {
-        Vladimir.provoke(true) 
-        Vladimir.filesTaken
+        Adventure.enemy.provoke(true) 
+        Adventure.enemy.filesTaken
         "Quick! They are onto you. Run and disguise yourself!\nVladimir: DAVAI"
       }
-      else if (Vladimir.isHere) {
-        Vladimir.provoke(true) 
+      else if (Adventure.enemy.isHere) {
+        Adventure.enemy.provoke(true) 
         "A guard saw that!"
       }
       else "You steal the " + thing + "."
@@ -66,36 +66,36 @@ class Player(startingArea: Area) {
     else if (currentLocation.doorIsOpenTo(toGoTo)){
       
      response = "You walk to " + toGoTo.name + ".\n"
-     if (Vladimir.isHere && !Vladimir.isComing) {
+     if (Adventure.enemy.isHere && !Adventure.enemy.isComing) {
        response += " A guard didn't like your manners!\nVladimir: Come here you little..."
        currentLocation = toGoTo
-       Vladimir.provoke(true)
-     } else if (Vladimir.isHere) {
+       Adventure.enemy.provoke(true)
+     } else if (Adventure.enemy.isHere) {
        currentLocation = toGoTo
        response += " That's a silly thing to do, when the guards are chasing you."
-       Vladimir.provoke(true)
+       Adventure.enemy.provoke(true)
      }
      else {
        currentLocation = toGoTo
-       if (Vladimir.callVladimir) response +=  Vladimir.vladiChat(None)
+       if (Adventure.enemy.callVladimir) response +=  Adventure.enemy.vladiChat(None)
      }
     }
     else {
       response = "Hmm. The door is locked\n"
-      if (Vladimir.callVladimir) response += Vladimir.vladiChat(None)
+      if (Adventure.enemy.callVladimir) response += Adventure.enemy.vladiChat(None)
     }
     response
   }
   /*By running the player can get to another room faster than a guard allowing him to use wig to disguise himself. If a guard sees the player running, he will get provoked.
    * If a guard hears the player running, but isn't in the same room, he will find the player normally. */
   def run(place: String) = {
-    if (Vladimir.isHere) {
-      if (Vladimir.isComing) Vladimir.provoke(false)
+    if (Adventure.enemy.isHere) {
+      if (Adventure.enemy.isComing) Adventure.enemy.provoke(false)
       else {
-        Vladimir.provoke(false)
-        Vladimir.provoke(false)
+        Adventure.enemy.provoke(false)
+        Adventure.enemy.provoke(false)
       }
-    } else if (Vladimir.isComing) Vladimir.provoke(true) 
+    } else if (Adventure.enemy.isComing) Adventure.enemy.provoke(true) 
     var response = ""
     val placeFix = place.split(" ")
     var toGoTo = currentLocation
@@ -104,17 +104,17 @@ class Player(startingArea: Area) {
     }
     if (toGoTo == currentLocation) {
      response = "You ran into a wall.\nVladimir: Who on earth are you??"
-     Vladimir.provoke(true)
+     Adventure.enemy.provoke(true)
     }
-    else if (currentLocation.doorIsOpenTo(toGoTo) && !Vladimir.isComing){
+    else if (currentLocation.doorIsOpenTo(toGoTo) && !Adventure.enemy.isComing){
       currentLocation = toGoTo
      response = "Your steps echo through the building as you run to " + toGoTo.name + ".\n"
-      Vladimir.alarmVladimir 
-      response +=  Vladimir.vladiChat(None)
+      Adventure.enemy.alarmVladimir 
+      response +=  Adventure.enemy.vladiChat(None)
     }
     else if (!currentLocation.doorIsOpenTo(toGoTo)) {
       response = "Aargh! The door is locked.\n"
-      Vladimir.alarmVladimir
+      Adventure.enemy.alarmVladimir
     }
     else {
       currentLocation = toGoTo
@@ -125,12 +125,12 @@ class Player(startingArea: Area) {
   def observe = this.location.description
   
   def answer(a: String) = {
-    if (Vladimir.isHere) {
+    if (Adventure.enemy.isHere) {
     if (!a.contains('a') && a.contains('b')) {
-      Vladimir.vladiChat(Some('b'))
+      Adventure.enemy.vladiChat(Some('b'))
     }
     else if (!a.contains('b') && a.contains('a')) {
-      Vladimir.vladiChat(Some('a'))
+      Adventure.enemy.vladiChat(Some('a'))
     }
     else "Your mind of a secrent agent forces you to choose between A and B."
     }

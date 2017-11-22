@@ -4,7 +4,7 @@ import scala.util.Random
 /* Guards the building. Appears randomly into areas and communicates to the player. WILL ATTACK IF SUSPECTS
  * SOMETHING!!
  */
-object Vladimir {
+class Vladimir {
   private val random = new Random()
   private def number = random.nextInt(100)
   private var madness = false
@@ -20,7 +20,7 @@ object Vladimir {
  def gotYou = distressIndex >= 3
  
  def alarmVladimir() = {
-   Vladimir.location = Adventure.player.location
+   this.location = Adventure.player.location
  }
  
  def callVladimir(): Boolean = {
