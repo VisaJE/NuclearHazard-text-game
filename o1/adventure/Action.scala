@@ -12,7 +12,7 @@ class Action(input: String) {
   private val modifiers   = commandText.drop(verb.length).trim
 
   private val commandList = "WALK (to) " + '"' + "place" + '"' + " - You walk into the place.\nRUN (to) " + '"' + "place" + '"' +
-  " - If the guards are chasing you, you need to run to the next room to disguise yourself.\nSTEAL " + '"' + "item" + '"' + " - You steal something for higher good. Use TAKE if it makes you feel better." + 
+  " - If the guards are chasing you, you need to run to the next room to disguise yourself.\nSTEAL " + '"' + "item" + '"' + " - You steal something for greater good. Use TAKE if it makes you feel better." + 
                             "\nINVENTORY - Check what you have with you. \nEXAMINE " + '"' + "item" + '"' + " - You examine the item more closely.\nUSE " + '"' + "item" + '"' +
                             " - You try to use the item\nOBSERVE - You check your surrounding area.\nQUIT - You don't need this one."
   
